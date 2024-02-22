@@ -2,6 +2,9 @@ import logging
 
 from telegram import InlineKeyboardMarkup
 from telegram.ext import Updater, CallbackQueryHandler, MessageHandler, Filters
+# from telegram.ext import filters
+
+# from telegram.ext import Updater, CallbackQueryHandler, MessageHandler, MessageFilter
 
 from vid_utils import Video, BadLink
 
@@ -37,7 +40,7 @@ def download_choosen_format(bot, update):
             bot.send_document(chat_id=query.message.chat_id, document=open(f, 'rb'))
 
 
-updater = Updater(token=YOUR_TOKEN)
+updater = Updater(token='7170250340:AAGGQK8WHt0XEEpL0b6stH8xipcpaDdoz7E')
 
 updater.dispatcher.add_handler(MessageHandler(Filters.text, get_format))
 updater.dispatcher.add_handler(CallbackQueryHandler(download_choosen_format))
